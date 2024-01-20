@@ -22,6 +22,7 @@ tasks:
 vscode:
   extensions:
     - hashicorp.terraform
+    - ms-azuretools.vscode-azureresourcegroups
     - ms-azuretools.vscode-docker
-    - ms-dotnettools.csharp
+    - ms-dotnettools.csdevkit
     - ms-azuretools.vscode-azurecontainerapps
