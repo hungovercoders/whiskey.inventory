@@ -1,0 +1,58 @@
+name: 'terraform'
+
+on:
+  push:
+    branches:
+      - default_branch_goes_here
+    paths-ignore:
+      - 'README.md'
+  pull_request:
+    branches:
+      - default_branch_goes_here
+    paths-ignore:
+      - 'README.md'
+  workflow_dispatch:
+
+jobs:
+  development-terraform:
+    uses: ./.github/workflows/job.yml
+    with:
+      UNIQUE_NAMESPACE: ${{ vars.UNIQUE_NAMESPACE }}
+      ORGANISATION: ${{ vars.ORGANISATION }}
+      ARM_REGION: ${{ vars.ARM_REGION }}
+      ENVIRONMENT: "development"
+    secrets:
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+
+  production-plan-terraform:
+    if: github.ref != 'refs/heads/main'
+    uses: ./.github/workflows/job.yml
+    needs: development-terraform
+    with:
+      UNIQUE_NAMESPACE: ${{ vars.UNIQUE_NAMESPACE }}
+      ORGANISATION: ${{ vars.ORGANISATION }}
+      ARM_REGION: ${{ vars.ARM_REGION }}
+      ENVIRONMENT: "production-plan"
+    secrets:
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+
+  production-terraform:
+    if: github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/job.yml
+    needs: development-terraform
+    with:
+      UNIQUE_NAMESPACE: ${{ vars.UNIQUE_NAMESPACE }}
+      ORGANISATION: ${{ vars.ORGANISATION }}
+      ARM_REGION: ${{ vars.ARM_REGION }}
+      ENVIRONMENT: "production"
+    secrets:
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
