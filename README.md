@@ -7,7 +7,7 @@ This project creates a whiskey and distillery CRUD application. This acts as an 
 * [Github Account](https://www.github.com/)
 * [Gitpod](https://gitpod.io/)
 * [Gitpod Browser Extension](https://www.gitpod.io/docs/configure/user-settings/browser-extension) (optional)
-* [Visual Studio Code](https://code.visualstudio.com/) (optional)
+* [Visual Studio Code](https://code.visualstudio.com/) (recommended so you can utilise Microsoft extensions as they won't work in the gitpod browser IDE)
 
 ## Getting Started
 
