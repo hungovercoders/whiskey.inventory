@@ -24,3 +24,4 @@ vscode:
     - hashicorp.terraform
     - ms-azuretools.vscode-docker
     - ms-dotnettools.csharp
+    - ms-azuretools.vscode-azurecontainerapps
