@@ -47,22 +47,12 @@ variable "unique_namespace" {
 }
 
 locals {
-  region_shortcode                  = (var.region == "northeurope" ? "eun" : var.region == "westeurope" ? "euw" : "unk")
-  environment_shortcode             = (var.environment == "learning" ? "lrn" : var.environment == "development" ? "dev" : var.environment == "production" ? "prd" : "unk")
-  resource_group_name               = "${local.environment_shortcode}-${var.domain}-rg-${var.unique_namespace}"
-  storage_account_name              = "${local.environment_shortcode}${var.domain}sa${local.region_shortcode}${var.unique_namespace}"
-  eventhub_namespace_name           = "${local.environment_shortcode}-${var.team}-ehns-${local.region_shortcode}-${var.unique_namespace}"
-  databricks_workspace_name         = "${local.environment_shortcode}-${var.team}-dbw-${local.region_shortcode}-${var.unique_namespace}"
-  databricks_workspace_rg           = "databricks-rg-${local.resource_group_name}"
-  databricks_premium_workspace_name = "${local.environment_shortcode}-${var.team}-dbwp-${local.region_shortcode}-${var.unique_namespace}"
-  databricks_premium_workspace_rg   = "databricks-premium-rg-${local.resource_group_name}"
-  cosmos_sql_name                   = "${local.environment_shortcode}-${var.domain}-cosdbsql-${local.region_shortcode}-${var.unique_namespace}"
-  cosmos_mon_name                   = "${local.environment_shortcode}-${var.domain}-cosdbmon-${local.region_shortcode}-${var.unique_namespace}"
-  apim_name                         = "${local.environment_shortcode}-${var.organisation}-apim-${local.region_shortcode}-${var.unique_namespace}"
-  acr_name                          = "${local.environment_shortcode}${var.organisation}acr${local.region_shortcode}${var.unique_namespace}"
-  key_vault_name                    = "${local.environment_shortcode}-${var.domain}-kv-${local.region_shortcode}-${var.unique_namespace}"
-  data_factory_name                 = "${local.environment_shortcode}-${var.domain}-adf-${local.region_shortcode}-${var.unique_namespace}"
-  cognitive_search_name             = "${local.environment_shortcode}-${var.domain}-cogsrch-${local.region_shortcode}-${var.unique_namespace}"
+  region_shortcode                          = (var.region == "northeurope" ? "eun" : var.region == "westeurope" ? "euw" : "unk")
+  environment_shortcode                     = (var.environment == "learning" ? "lrn" : var.environment == "development" ? "dev" : var.environment == "production" ? "prd" : "unk")
+  resource_group_name                       = "${local.environment_shortcode}-${var.domain}-rg-${var.unique_namespace}"
+  container_app_name                        = "${local.environment_shortcode}-${var.domain}-ca-${local.region_shortcode}-${var.unique_namespace}"
+  container_environment_name                = "${local.environment_shortcode}-platform-ace-${local.region_shortcode}-${var.unique_namespace}"
+  container_environment_resource_group_name = "${local.environment_shortcode}-platform-rg-${var.unique_namespace}"
 
   tags = {
     environment  = var.environment
