@@ -8,4 +8,6 @@ echo 'Getting az cli version...'
 az --version
 echo 'Getting aztfexport version...'
 aztfexport --version
+echo 'Getting dotnet version...'
+dotnet --version
 
