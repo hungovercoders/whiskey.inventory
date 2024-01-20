@@ -18,9 +18,9 @@ tasks:
     command: |
       gp sync-await waitonnstate
       sh ./cde/terraform.sh
-      cd terraform
-
 
 vscode:
   extensions:
     - hashicorp.terraform
+    - ms-azuretools.vscode-docker
+    - ms-dotnettools.csharp

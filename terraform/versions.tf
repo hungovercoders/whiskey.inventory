@@ -2,7 +2,7 @@ terraform {
 
 
   backend "azurerm" {
-    key = "template.azure.terraform.tfstate"
+    key = "whiskey.inventory.tfstate"
   }
 
   required_providers {
