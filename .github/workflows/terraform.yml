@@ -46,11 +46,14 @@ jobs:
           with:
             terraform_version: 1.6.3
 
-        - name: Adjust ENVIRONMENT variable for Production Plan
+        - name: 'Show Variables'
+          env:
+            ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
+            UNIQUE_NAMESPACE: ${{ inputs.UNIQUE_NAMESPACE }}
+            ORGANISATION: ${{ inputs.ORGANISATION }}
+            ARM_REGION: ${{ inputs.ARM_REGION }}
           run: |
-            echo "TF_BACKEND_CONTAINER=$(echo '${{ inputs.ENVIRONMENT }}' | sed 's/-plan//')" >> $GITHUB_ENV
-            echo "TF_VAR_environment=$(echo '${{ inputs.ENVIRONMENT }}' | sed 's/-plan//')" >> $GITHUB_ENV
-            echo "ENVIRONMENT=$(echo '${{ inputs.ENVIRONMENT }}' | sed 's/-plan//')" >> $GITHUB_ENV
+            sh ./cde/variables.sh
   
         - name: 'Terraform Plan'
           env:
