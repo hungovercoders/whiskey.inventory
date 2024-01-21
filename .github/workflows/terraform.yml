@@ -65,10 +65,19 @@ jobs:
             sh ./cde/variables.sh
     
         - name: 'Terraform Plan'
+          working-directory: terraform
           run: |
-            sh ./cde/terraform.sh
+            set -a
+            . ../domain.env
+            set +a
+            export TF_VAR_team=$TEAM
+            export TF_VAR_domain=$DOMAIN
+            echo "Team is $TF_VAR_team" 
+            echo "Domain is $TF_VAR_domain"
+            terraform plan
          
         - name: Terraform Apply
           if: github.ref == 'refs/heads/main' || ${{ inputs.ENVIRONMENT }} not in ('production','production-plan')
+          working-directory: terraform
           run: |
-            sh ./cde/terraform.sh True
+            sh ../cde/terraform.sh True
