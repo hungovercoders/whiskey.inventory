@@ -18,14 +18,14 @@ resource "azurerm_container_app" "app" {
   template {
     container {
       name   = "examplecontainerapp2"
-      image  = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"
+      image  = "docker.io/hungovercoders/whiskeyapi:latest"
       cpu    = 0.25
       memory = "0.5Gi"
     }
   }
   ingress {
     external_enabled = true
-    target_port      = 80
+    target_port      = 5231
     traffic_weight {
       latest_revision = true
       percentage      = 100
