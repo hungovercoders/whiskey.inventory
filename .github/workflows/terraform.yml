@@ -36,14 +36,14 @@ jobs:
             ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
             ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
             ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-            TF_BACKEND_RESOURCE_GROUP: state-rg-${{ inputs.UNIQUE_NAMESPACE }}
-            TF_BACKEND_STORAGE_ACCOUNT: statesa${{ inputs.UNIQUE_NAMESPACE }}
-            TF_BACKEND_CONTAINER: ${{ inputs.ENVIRONMENT }}
+            # TF_BACKEND_RESOURCE_GROUP: state-rg-${{ inputs.UNIQUE_NAMESPACE }}
+            # TF_BACKEND_STORAGE_ACCOUNT: statesa${{ inputs.UNIQUE_NAMESPACE }}
+            # TF_BACKEND_CONTAINER: ${{ inputs.ENVIRONMENT }}
             ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
-            TF_VAR_environment: ${{ inputs.ENVIRONMENT }}
-            TF_VAR_unique_namespace: ${{ inputs.UNIQUE_NAMESPACE }}
-            TF_VAR_organisation: ${{ inputs.ORGANISATION }}
-            TF_VAR_region: ${{ inputs.ARM_REGION }}
+            # TF_VAR_environment: ${{ inputs.ENVIRONMENT }}
+            # TF_VAR_unique_namespace: ${{ inputs.UNIQUE_NAMESPACE }}
+            # TF_VAR_organisation: ${{ inputs.ORGANISATION }}
+            # TF_VAR_region: ${{ inputs.ARM_REGION }}
         
         steps:
         - name: Checkout
@@ -53,17 +53,17 @@ jobs:
           uses: hashicorp/setup-terraform@v1
           with:
             terraform_version: 1.6.3
+        
+        - name: 'Show Variables'
+          run: |
+            sh ./cde/variables.sh
 
         - name: Adjust ENVIRONMENT variable for Production Plan
           run: |
             echo "TF_BACKEND_CONTAINER=$(echo '${{ inputs.ENVIRONMENT }}' | sed 's/-plan//')" >> $GITHUB_ENV
             echo "TF_VAR_environment=$(echo '${{ inputs.ENVIRONMENT }}' | sed 's/-plan//')" >> $GITHUB_ENV
             echo "ENVIRONMENT=$(echo '${{ inputs.ENVIRONMENT }}' | sed 's/-plan//')" >> $GITHUB_ENV
-    
-        - name: 'Show Variables'
-          run: |
-            sh ./cde/variables.sh
-    
+  
         - name: 'Terraform Plan'
           run: |
             sh ./cde/terraform.sh
