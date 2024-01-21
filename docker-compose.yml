@@ -10,3 +10,5 @@ services:
       dockerfile: WhiskeyAPI/Dockerfile
     ports:
       - 5231:5231
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ENVIRONMENT}
