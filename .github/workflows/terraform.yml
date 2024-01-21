@@ -68,7 +68,7 @@ jobs:
           if: github.ref == 'refs/heads/main' || ${{ inputs.ENVIRONMENT }} not in ('production','production-plan')
           env:
             ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
-            UNIQUE_NAMESPACE: ${{ inputs.UNIQUE_NAMESPACE }}
+            UNIQUE_NAMESPACE: ${{ inputs.UNIQUE_NAMESPACE }}  
             ORGANISATION: ${{ inputs.ORGANISATION }}
             ARM_REGION: ${{ inputs.ARM_REGION }}
           run: |
