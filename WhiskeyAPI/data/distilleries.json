@@ -4,14 +4,30 @@
         "website": "www.irishamericanwhiskeys.com",
         "region": "County Mayo",
         "country": "Ireland",
-        "coordinates": [53.9631, -10.0069]
+        "location": {
+            "lat": 53.9631,
+            "lng": -10.0069
+          }
     },
     {
         "name": "Bushmills Distillery",
         "website": "www.bushmills.com",
         "region": "County Antrim",
         "country": "Northern Ireland",
-        "coordinates": [55.2048, -6.5236]
+        "location": {
+            "lat": 55.2048,
+            "lng": -6.5236
+          }
+    }
+    {
+        "name": "Jameson Distillery",
+        "website": "www.jamesonwhiskey.com",
+        "region": "County Dublin",
+        "country": "Ireland",
+        "location": {
+            "lat": 53.3419,
+            "lng": -6.2865
+          }
     }
     
 ]
