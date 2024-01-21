@@ -63,6 +63,10 @@ jobs:
         
         - name: Terraform Apply
           if: github.ref == 'refs/heads/main' || ${{ inputs.ENVIRONMENT }} not in ('production','production-plan')
-          working-directory: terraform
+          env:
+            ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
+            UNIQUE_NAMESPACE: ${{ inputs.UNIQUE_NAMESPACE }}
+            ORGANISATION: ${{ inputs.ORGANISATION }}
+            ARM_REGION: ${{ inputs.ARM_REGION }}
           run: |
             sh ./cde/terraform.sh True
