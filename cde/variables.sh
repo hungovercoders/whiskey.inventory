@@ -1,0 +1,6 @@
+echo "Unique Namespace is $TF_VAR_unique_namespace" 
+echo "Organisation is $TF_VAR_organisation" 
+echo "Region is $TF_VAR_region" 
+echo "Storage Account is $TF_BACKEND_STORAGE_ACCOUNT" 
+echo "Environment is $ENVIRONMENT" 
+echo "Container is $TF_BACKEND_CONTAINER"
