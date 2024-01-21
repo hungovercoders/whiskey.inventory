@@ -65,7 +65,7 @@ jobs:
             sh ./cde/terraform.sh
         
         - name: Terraform Apply
-          if: ${{ github.ref == 'refs/heads/main' && inputs.ENVIRONMENT == 'production' }} || ${{ inputs.ENVIRONMENT == 'development' }}
+          if: ${{ github.ref == 'refs/heads/main' }} || ${{ inputs.ENVIRONMENT == 'development' }}
           env:
             ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
             UNIQUE_NAMESPACE: ${{ inputs.UNIQUE_NAMESPACE }}  
