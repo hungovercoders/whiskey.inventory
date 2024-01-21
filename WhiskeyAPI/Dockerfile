@@ -3,6 +3,7 @@ WORKDIR /app
 EXPOSE 5231
 
 ENV ASPNETCORE_URLS=http://+:5231
+ENV ASPNETCORE_ENVIRONMENT=Development 
 
 USER app
 FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:8.0 AS build
