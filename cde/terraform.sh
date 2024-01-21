@@ -9,14 +9,7 @@ set +a
 # the following is used to generate a plan against production as part of pull request
 # in a production-plan environment
 echo "MESSAGE: removing -plan from environment name if present..."
-plan="False"
-if [[ $name == *"-plan"* ]]; then
-  echo "'-plan' is contained in the environment name."
-  ENVIRONMENT=$(echo $ENVIRONMENT | sed 's/-plan//')
-  plan="True"
-else
-  echo "'-plan' is not contained in the environment name."
-fi
+ENVIRONMENT=$(echo $ENVIRONMENT | sed 's/-plan//')
 
 echo "MESSAGE: Setting terraform state variables..."
 export TF_VAR_environment=$ENVIRONMENT
@@ -55,7 +48,7 @@ terraform validate
 echo "MESSAGE: Planning terraform..."
 terraform plan
 
-if [ $apply = True && $plan = False ]; then
+if [ $apply = True ]; then
     echo "MESSAGE: Applying terraform..."
     terraform apply -auto-approve
 fi
