@@ -36,6 +36,10 @@ jobs:
             ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
             ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
             ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+            ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
+            UNIQUE_NAMESPACE: ${{ inputs.UNIQUE_NAMESPACE }}  
+            ORGANISATION: ${{ inputs.ORGANISATION }}
+            ARM_REGION: ${{ inputs.ARM_REGION }}
         
         steps:
         - name: Checkout
@@ -47,29 +51,14 @@ jobs:
             terraform_version: 1.6.3
 
         - name: 'Show Variables'
-          env:
-            ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
-            UNIQUE_NAMESPACE: ${{ inputs.UNIQUE_NAMESPACE }}
-            ORGANISATION: ${{ inputs.ORGANISATION }}
-            ARM_REGION: ${{ inputs.ARM_REGION }}
           run: |
             sh ./cde/variables.sh
   
         - name: 'Terraform Plan'
-          env:
-            ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
-            UNIQUE_NAMESPACE: ${{ inputs.UNIQUE_NAMESPACE }}
-            ORGANISATION: ${{ inputs.ORGANISATION }}
-            ARM_REGION: ${{ inputs.ARM_REGION }}
           run: |
             sh ./cde/terraform.sh
         
         - name: Terraform Apply
           if: ${{ github.ref == 'refs/heads/main' || (inputs.ENVIRONMENT != 'production' && inputs.ENVIRONMENT != 'production-plan') }}
-          env:
-            ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
-            UNIQUE_NAMESPACE: ${{ inputs.UNIQUE_NAMESPACE }}  
-            ORGANISATION: ${{ inputs.ORGANISATION }}
-            ARM_REGION: ${{ inputs.ARM_REGION }}
           run: |
             sh ./cde/terraform.sh True
