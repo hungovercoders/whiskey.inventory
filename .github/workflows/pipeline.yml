@@ -21,11 +21,6 @@ jobs:
       ORGANISATION: ${{ vars.ORGANISATION }}
       ARM_REGION: ${{ vars.ARM_REGION }}
       ENVIRONMENT: "development"
-    secrets:
-      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
 
   production-plan-terraform:
     if: github.ref != 'refs/heads/main'
@@ -36,11 +31,6 @@ jobs:
       ORGANISATION: ${{ vars.ORGANISATION }}
       ARM_REGION: ${{ vars.ARM_REGION }}
       ENVIRONMENT: "production-plan"
-    secrets:
-      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
 
   production-terraform:
     if: github.ref == 'refs/heads/main'
@@ -51,8 +41,3 @@ jobs:
       ORGANISATION: ${{ vars.ORGANISATION }}
       ARM_REGION: ${{ vars.ARM_REGION }}
       ENVIRONMENT: "production"
-    secrets:
-      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
