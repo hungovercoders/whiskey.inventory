@@ -1,0 +1,65 @@
+name: Infrastructure
+
+on:
+  workflow_call:
+    inputs:
+      UNIQUE_NAMESPACE:
+        required: true
+        type: string
+      ORGANISATION:
+        required: true
+        type: string
+      ARM_REGION:
+        required: true
+        type: string
+      ENVIRONMENT:
+        required: true
+        type: string
+    secrets:
+      ARM_CLIENT_ID:
+          required: true
+      ARM_CLIENT_SECRET:
+          required: true
+      ARM_SUBSCRIPTION_ID:
+          required: true
+      ARM_TENANT_ID:
+          required: true
+
+jobs:
+
+    terraform:
+        name: 'Infrastructure'
+        runs-on: ubuntu-latest
+        environment:  ${{ inputs.ENVIRONMENT }}
+        env:
+            ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+            ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+            ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+            ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+            ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
+            UNIQUE_NAMESPACE: ${{ inputs.UNIQUE_NAMESPACE }}  
+            ORGANISATION: ${{ inputs.ORGANISATION }}
+            ARM_REGION: ${{ inputs.ARM_REGION }}
+        
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+    
+        - name: Setup Terraform
+          uses: hashicorp/setup-terraform@v1
+          with:
+            terraform_version: 1.6.3
+
+        - name: 'Show Variables'
+          run: |
+            sh ./tools_platform/environment_variables.sh
+  
+        - name: 'Terraform Plan'
+          if: ${{ github.ref == 'refs/heads/main' && inputs.ENVIRONMENT == 'production-plan' }}
+          run: |
+            sh ./tools_platform/infrastructure.sh
+        
+        - name: Terraform Apply
+          if: ${{ github.ref == 'refs/heads/main' || (inputs.ENVIRONMENT != 'production' && inputs.ENVIRONMENT != 'production-plan') }}
+          run: |
+            sh ./tools_platform/infrastructure.sh True

@@ -1,0 +1,43 @@
+image:
+  file: .cde.Dockerfile
+
+tasks:
+  - name: Versions
+    command: |
+      sh ./tools_platform/environment_versions.sh
+  - name: Variables
+    command: |
+      sh ./tools_platform/environment_variables.sh
+  - name: Azure CLI
+    command: |
+      sh ./tools_platform/azure_login_service_principle.sh
+      gp sync-done waitonazurecli
+  - name: Azure Storage
+    command: |
+      gp sync-await waitonazurecli
+      sh ./tools_platform/infrastructure_state_storage.sh
+      gp sync-done waitonnstate
+  - name: Terraform
+    command: |
+      gp sync-await waitonnstate
+      sh ./tools_platform/infrastructure.sh
+  - name: Container Build
+    command: |
+      sh ./tools_app/docker_build.sh True False
+      gp sync-done containerbuild
+  - name: Open App
+    command: |
+      gp sync-await containerbuild
+      sh ./tools_app/preview.sh
+      
+vscode:
+  extensions:
+    - hashicorp.terraform
+    - ms-azuretools.vscode-azureresourcegroups
+    - ms-vscode.vscode-node-azure-pack
+    - formulahendry.code-runner
+    - github.vscode-github-actions
+    - gitpod.gitpod-desktop
+    - redhat.vscode-yaml
+    - ms-azuretools.vscode-docker
+    - ms-dotnettools.csdevkit
