@@ -41,3 +41,4 @@ vscode:
     - redhat.vscode-yaml
     - ms-azuretools.vscode-docker
     - ms-dotnettools.csdevkit
+    - ritwickdey.liveserver

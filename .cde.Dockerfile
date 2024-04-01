@@ -13,4 +13,5 @@ RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && \
     brew install hashicorp/tap/terraform && \
     brew upgrade terraform && \
     brew install azure-cli  && \
-    brew install aztfexport
+    brew install aztfexport && \
+    brew install maven
