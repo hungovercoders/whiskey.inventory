@@ -16,31 +16,56 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
+app.MapGet("/distilleries", () =>
 {
-    "Fucking Freezing", "Fucking Bracing", "Fucking Chilly", "Fucking Cool", "Fucking Mild", "Fucking Warm", "Fucking Balmy", "Fucking Hot", "Fucking Sweltering", "Fucking Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
+    var distilleries = new Distillery[]
+       {
+            new Distillery
+            {
+                Name = "Achill Island Distillery",
+                Website = "www.irishamericanwhiskeys.com",
+                Region = "County Mayo",
+                Country = "Ireland",
+                Location = new Location { Lat = 53.9631, Lng = -10.0069 }
+            },
+            new Distillery
+            {
+                Name = "Bushmills Distillery",
+                Website = "www.bushmills.com",
+                Region = "County Antrim",
+                Country = "Northern Ireland",
+                Location = new Location { Lat = 55.2048, Lng = -6.5236 }
+            },
+            new Distillery
+            {
+                Name = "Jameson Distillery",
+                Website = "www.jamesonwhiskey.com",
+                Region = "County Dublin",
+                Country = "Ireland",
+                Location = new Location { Lat = 53.3419, Lng = -6.2865 }
+            }
+       };
+    return distilleries;
 })
-.WithName("GetWeatherForecast")
+.WithName("GetDistilleries")
 .WithOpenApi();
 
 app.MapGet("/health", () => "Healthy");
 
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+public class Distillery
 {
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    public string Name { get; set; }
+    public string Website { get; set; }
+    public string Region { get; set; }
+    public string Country { get; set; }
+    public Location Location { get; set; }
 }
+
+public class Location
+{
+    public double Lat { get; set; }
+    public double Lng { get; set; }
+}
+
