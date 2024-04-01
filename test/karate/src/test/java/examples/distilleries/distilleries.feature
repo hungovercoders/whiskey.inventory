@@ -1,4 +1,4 @@
-Feature: sample karate test script
+Feature: Distillery Interactions
   for help, see: https://github.com/intuit/karate/wiki/IDE-Support
 
   Background:
@@ -7,4 +7,17 @@ Feature: sample karate test script
   Scenario: get all users
     Given path 'distilleries'
     When method get
-    Then status 201
+    Then status 200
+    And match each response == 
+    """
+    { 
+      name: '#string', 
+      website: '#string', 
+      region: '#string', 
+      country: '#string', 
+      location: { 
+        lat: '#number', 
+        lng: '#number' 
+      } 
+    }
+    """
