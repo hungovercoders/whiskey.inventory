@@ -7,4 +7,4 @@ Feature: sample karate test script
   Scenario: get all users
     Given path 'distilleries'
     When method get
-    Then status 200
+    Then status 201
