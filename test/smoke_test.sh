@@ -1,8 +1,7 @@
-echo "Starting script: $0..."
-
 set -a
 . ./domain.env
 set +a
+echo -e "${MESSAGE_COLOUR}Starting script: $0...${MESSAGE_NO_COLOUR}"
 
 URL=${1:-http://localhost:$PORT/health}
 echo "Url to be smoke tested is $URL..."
@@ -20,11 +19,13 @@ while [ $counter -le $retries ]; do
     response=$(curl -s -o /dev/null -w "%{http_code}" $URL)
     if [ "$response" -eq 200 ]; then
         echo "\e[32mSuccess: HTTP status code is 200\e[0m"
+        echo -e "${MESSAGE_COLOUR}Completed script: $0.${MESSAGE_NO_COLOUR}"
         exit 0
     elif [ "$response" -eq 000 ]; then
         echo "\e[33mPending: HTTP status code is 000\e[0m"
     else
         echo -e "\e[31mError: HTTP status code is $response\e[0m"
+        echo -e "${MESSAGE_COLOUR}Completed script: $0.${MESSAGE_NO_COLOUR}"
         exit 1
     fi
 
@@ -33,4 +34,5 @@ while [ $counter -le $retries ]; do
     counter=$(expr $counter + 1)
     done
 echo "\e[31mTimed out after $retries retries over a period of $timeout seconds.\e[0m"
+echo -e "${MESSAGE_COLOUR}Completed script: $0.${MESSAGE_NO_COLOUR}"
 exit 1

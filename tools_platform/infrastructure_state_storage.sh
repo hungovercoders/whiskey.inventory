@@ -1,3 +1,8 @@
+set -a
+. ./domain.env
+set +a
+echo -e "${MESSAGE_COLOUR}Starting script: $0...${MESSAGE_NO_COLOUR}"
+
 TF_BACKEND_RESOURCE_GROUP="state-rg-$UNIQUE_NAMESPACE"
 TF_BACKEND_STORAGE_ACCOUNT="statesa$UNIQUE_NAMESPACE"
 az group create -n $TF_BACKEND_RESOURCE_GROUP -l $ARM_REGION
@@ -8,4 +13,6 @@ az storage container create --name "uat" --account-name $TF_BACKEND_STORAGE_ACCO
 az storage container create --name "production" --account-name $TF_BACKEND_STORAGE_ACCOUNT
 resourceId=$(az storage account show --name $TF_BACKEND_STORAGE_ACCOUNT --resource-group $TF_BACKEND_RESOURCE_GROUP --query id -o tsv)
 az lock create --name Delete --lock-type CanNotDelete --resource $resourceId
+
+echo -e "${MESSAGE_COLOUR}Completed script: $0.${MESSAGE_NO_COLOUR}"
 

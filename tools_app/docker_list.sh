@@ -1,4 +1,7 @@
-echo "Starting script: $0..."
+set -a
+. ./domain.env
+set +a
+echo -e "${MESSAGE_COLOUR}Starting script: $0...${MESSAGE_NO_COLOUR}"
 echo "Listing all images..."
 docker images
 echo "Listed all images."

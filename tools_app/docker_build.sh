@@ -3,11 +3,10 @@ set -e  # Exit immediately if a command exits with a non-zero status.
 RUN=${1:-False}
 PUSH=${2:-False}
 
-echo "Starting script: $0..."
-
 set -a
 . ./domain.env
 set +a
+echo -e "${MESSAGE_COLOUR}Starting script: $0...${MESSAGE_NO_COLOUR}"
 
 if [ $RUN = True ]; then
     echo "You have chosen to run the image as a container once built."
@@ -79,5 +78,5 @@ if [ $PUSH = True ]; then
     echo "Pushed image $IMAGENAME."
 fi
 
-echo "Completed script: $0."
+echo -e "${MESSAGE_COLOUR}Completed script: $0.${MESSAGE_NO_COLOUR}"
 

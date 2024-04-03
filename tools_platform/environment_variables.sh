@@ -3,6 +3,7 @@ set -e  # Exit immediately if a command exits with a non-zero status.
 set -a
 . ./domain.env
 set +a
+echo -e "${MESSAGE_COLOUR}Starting script: $0...${MESSAGE_NO_COLOUR}"
 
 echo "MESSAGE: Environment variables are..."
 echo "Unique Namespace is $ORGANISATION" 

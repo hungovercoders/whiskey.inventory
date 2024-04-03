@@ -1,10 +1,12 @@
 set -e  # Exit immediately if a command exits with a non-zero status.
 
-apply=${1:-False}
-echo "Apply: $apply"
 set -a
 . ./domain.env
 set +a
+echo -e "${MESSAGE_COLOUR}Starting script: $0...${MESSAGE_NO_COLOUR}"
+
+apply=${1:-False}
+echo "Apply: $apply"
 
 # the following is used to generate a plan against production as part of pull request
 # in a production-plan environment
@@ -64,3 +66,5 @@ if [ $apply = True ]; then
     echo "MESSAGE: Applying terraform..."
     terraform apply -auto-approve
 fi
+
+echo -e "${MESSAGE_COLOUR}Completed script: $0.${MESSAGE_NO_COLOUR}"
