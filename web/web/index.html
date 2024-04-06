@@ -52,8 +52,9 @@
     </div>
 
     <script>
+        const URL_API = process.env.URL_API
         // JavaScript code to fetch data from your API
-        fetch('http://localhost:5240/distilleries')
+        fetch(`${URL_API}/distilleries`)
             .then(response => response.json())
             .then(data => {
                 // Process the data and update the webpage

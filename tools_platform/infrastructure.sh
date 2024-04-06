@@ -31,7 +31,8 @@ else
 fi
 
 export TF_VAR_image_tag=$IMAGE_TAG
-export TF_VAR_port=$PORT
+export TF_VAR_port_api=$PORT_API
+export TF_VAR_port_web=$PORT_WEB
 TF_BACKEND_RESOURCE_GROUP="state-rg-$UNIQUE_NAMESPACE"
 TF_BACKEND_STORAGE_ACCOUNT="statesa$UNIQUE_NAMESPACE"
 

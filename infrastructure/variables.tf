@@ -56,9 +56,14 @@ variable "image_tag" {
   description = "What image tag should be used for the container app image."
 }
 
-variable "port" {
+variable "port_api" {
   type        = string
-  description = "What will be the exposed port for the container app."
+  description = "What will be the exposed port for the api container app."
+}
+
+variable "port_web" {
+  type        = string
+  description = "What will be the exposed port for the web container app."
 }
 
 
@@ -66,11 +71,14 @@ locals {
   region_shortcode                          = (var.region == "northeurope" ? "eun" : var.region == "westeurope" ? "euw" : "unk")
   environment_shortcode                     = (var.environment == "learning" ? "lrn" : var.environment == "development" ? "dev" : var.environment == "production" ? "prd" : "unk")
   resource_group_name                       = "${local.environment_shortcode}-${var.domain}-rg-${var.unique_namespace}"
-  container_app_name                        = "${local.environment_shortcode}-${var.domain}-ca-${local.region_shortcode}-${var.unique_namespace}"
+  container_app_api_name                    = "${local.environment_shortcode}-${var.domain}-api-${local.region_shortcode}-${var.unique_namespace}"
+  container_app_web_name                    = "${local.environment_shortcode}-${var.domain}-web-${local.region_shortcode}-${var.unique_namespace}"
   container_environment_name                = "${local.environment_shortcode}-platform-ace-${local.region_shortcode}-${var.unique_namespace}"
   container_environment_resource_group_name = "${local.environment_shortcode}-platform-rg-${var.unique_namespace}"
-  container_name                            = var.app
-  container_image_name                      = "docker.io/${var.organisation}/${var.app}:${var.image_tag}"
+  container_api_name                        = "${var.app}-api"
+  container_web_name                        = "${var.app}-web"
+  container_api_image_name                  = "docker.io/${var.organisation}/${var.app}-api:${var.image_tag}"
+  container_web_image_name                  = "docker.io/${var.organisation}/${var.app}-web:${var.image_tag}"
 
   tags = {
     environment  = var.environment

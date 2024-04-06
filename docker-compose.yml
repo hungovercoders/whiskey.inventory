@@ -3,10 +3,18 @@
 version: '3.4'
 
 services:
+
   api:
-    image: api
+    # image: ${APP}
     build:
-      context: .
-      dockerfile: api/Dockerfile
+      context: ./api
+      dockerfile: Dockerfile
     ports:
       - 5240:5240
+  web:
+    # image: $APP
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
