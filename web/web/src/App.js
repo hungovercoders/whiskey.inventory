@@ -4,13 +4,15 @@ import './App.css'; // Import CSS file for styling
 
 const WhiskeyDistilleries = () => {
   const [distilleries, setDistilleries] = useState([]);
+  
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const { URL_API } = process.env;
         console.log('Fetching data from ' + process.env.URL_API);
         // Define the URL based on an environment variable or fallback to a default value
-        const apiUrl = process.env.URL_API || 'http://localhost:5240';
+        const apiUrl = URL_API || 'http://localhost:5240';
 
         // Make a GET request using the URL
         const response = await axios.get(`${apiUrl}/distilleries`);
