@@ -30,7 +30,7 @@ const WhiskeyDistilleries = () => {
           <h2>{distillery.name}</h2>
           <p><strong>Country:</strong> {distillery.country}</p>
           <p><strong>Region:</strong> {distillery.region}</p>
-          <p><strong>Website:</strong> <a href={distillery.website} target="_blank">{distillery.website}</a></p>
+          <p><strong>Website:</strong> <a href={distillery.website} target="_blank" rel="noopener noreferrer">{distillery.website}</a></p>
         </div>
       ))}
     </div>

@@ -35,7 +35,7 @@ app.MapGet("/distilleries", () =>
             new Distillery
             {
                 Name = "Achill Island Distillery",
-                Website = "www.irishamericanwhiskeys.com",
+                Website = "https://www.irishamericanwhiskeys.com",
                 Region = "County Mayo",
                 Country = "Ireland",
                 Location = new Location { Lat = 53.9631, Lng = -10.0069 }
@@ -43,7 +43,7 @@ app.MapGet("/distilleries", () =>
             new Distillery
             {
                 Name = "Bushmills Distillery",
-                Website = "www.bushmills.com",
+                Website = "https://www.bushmills.com",
                 Region = "County Antrim",
                 Country = "Northern Ireland",
                 Location = new Location { Lat = 55.2048, Lng = -6.5236 }
@@ -51,7 +51,7 @@ app.MapGet("/distilleries", () =>
             new Distillery
             {
                 Name = "Jameson Distillery",
-                Website = "www.jamesonwhiskey.com",
+                Website = "https://www.jamesonwhiskey.com",
                 Region = "County Dublin",
                 Country = "Ireland",
                 Location = new Location { Lat = 53.3419, Lng = -6.2865 }
