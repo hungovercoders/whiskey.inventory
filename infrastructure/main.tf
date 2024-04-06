@@ -47,7 +47,7 @@ resource "azurerm_container_app" "web" {
       cpu    = 0.25
       memory = "0.5Gi"
       env {
-        name  = "URL_API"
+        name  = "REACT_APP_API_URL"
         value = azurerm_container_app.api.ingress[0].fqdn
       }
     }

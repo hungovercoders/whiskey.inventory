@@ -9,10 +9,10 @@ const WhiskeyDistilleries = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { URL_API } = process.env;
+        const { REACT_APP_API_URL } = process.env;
         console.log('Fetching data from ' + process.env.URL_API);
         // Define the URL based on an environment variable or fallback to a default value
-        const apiUrl = URL_API || 'http://localhost:5240';
+        const apiUrl = REACT_APP_API_URL || 'http://localhost:5240';
 
         // Make a GET request using the URL
         const response = await axios.get(`${apiUrl}/distilleries`);
