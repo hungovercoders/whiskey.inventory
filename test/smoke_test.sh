@@ -3,7 +3,7 @@ set -a
 set +a
 echo -e "${MESSAGE_COLOUR}Starting script: $0...${MESSAGE_NO_COLOUR}"
 
-URL=${1:-http://localhost:$PORT/health}
+URL=${1:-http://localhost:$PORT_API/health}
 echo "Url to be smoke tested is $URL..."
 
 retries=5
