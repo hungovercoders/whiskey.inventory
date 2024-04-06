@@ -48,7 +48,7 @@ resource "azurerm_container_app" "web" {
       memory = "0.5Gi"
       env {
         name  = "API_URL"
-        value = azurerm_container_app.api.latest_revision_fqdn
+        value = azurerm_container_app.api.ingress[0].fqdn
       }
     }
   }
