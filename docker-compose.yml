@@ -18,3 +18,5 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8080:80
+    environment:
+      - REACT_APP_API_URL=https://dev-whiskey-api-eun-hngc.salmonsea-c65b336a.northeurope.azurecontainerapps.io/

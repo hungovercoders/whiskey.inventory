@@ -1,7 +1,8 @@
 # Use an official Node.js LTS image as the base image
 FROM node:14 as build
 
-ARG REACT_APP_API_URL='http://localhost:5240'
+# ='http://localhost:5240'
+ARG REACT_APP_API_URL 
 ENV REACT_APP_API_URL=$REACT_APP_API_URL
 
 # Set the working directory inside the container
