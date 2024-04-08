@@ -22,7 +22,7 @@ resource "azurerm_container_app" "api" {
       cpu    = 0.25
       memory = "0.5Gi"
       env {
-        name  = "ENVIRONMENT"
+        name  = "APP_ENVIRONMENT"
         value = var.environment
       }
 

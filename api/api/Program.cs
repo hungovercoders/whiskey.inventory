@@ -28,7 +28,7 @@ app.UseCors("AllowSpecificOrigins");
 
 app.UseHttpsRedirection();
 
-string environment = System.Environment.GetEnvironmentVariable("ENVIRONMENT");
+string environment = System.Environment.GetEnvironmentVariable("APP_ENVIRONMENT");
 app.MapGet("/", () => $"Welcome to the whiskey API {environment} environment");
 
 app.MapGet("/distilleries", () =>
