@@ -77,9 +77,9 @@ fi
 if [ "$RUN" = "True" ] || [ "$PUSH" = "True" ]; then
     sh ./tools_app/docker_containers_clear.sh
     echo "Run container $CONTAINERNAME from image $IMAGENAME..."
-    docker run -d -p $PORT1:$PORT2 --name $CONTAINERNAME -e ASPNETCORE_ENVIRONMENT=$ENVIRONMENT $IMAGENAME
+    docker run -d --env-file domain.env -p $PORT1:$PORT2 --name $CONTAINERNAME -e ASPNETCORE_ENVIRONMENT=$ENVIRONMENT $IMAGENAME
     echo "Running container $CONTAINERNAME from image $IMAGENAME."
-    sh ./test/tests.sh
+    sh ./test/tests.sh    
 fi
 
 if [ $PUSH = True ]; then

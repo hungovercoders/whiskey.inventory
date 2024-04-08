@@ -21,6 +21,10 @@ resource "azurerm_container_app" "api" {
       image  = local.container_api_image_name
       cpu    = 0.25
       memory = "0.5Gi"
+      env {
+        name  = "ENVIRONMENT"
+        value = var.environment
+      }
 
     }
   }
