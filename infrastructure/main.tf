@@ -22,7 +22,7 @@ resource "azurerm_container_app" "api" {
       cpu    = 0.25
       memory = "0.5Gi"
       env {
-        name  = "APP_ENVIRONMENT"
+        name  = "REACT_APP_ENVIRONMENT"
         value = var.environment
       }
 
@@ -54,6 +54,11 @@ resource "azurerm_container_app" "web" {
         name  = "REACT_APP_API_URL"
         value = azurerm_container_app.api.ingress[0].fqdn
       }
+      env {
+        name  = "REACT_APP_ENVIRONMENT"
+        value = var.environment
+      }
+
     }
   }
   ingress {

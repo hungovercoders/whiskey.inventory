@@ -9,7 +9,7 @@ const WhiskeyDistilleries = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log('Fetching data from ' + process.ENVIRONMENT);
+        console.log('Fetching data from ' + process.env.REACT_APP_ENVIRONMENT);
         // Define the URL based on an environment variable or fallback to a default value
         const apiUrl = window.REACT_APP_API_URL || 'http://localhost:5240';
 
