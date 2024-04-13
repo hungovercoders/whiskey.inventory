@@ -10,8 +10,10 @@ const WhiskeyDistilleries = () => {
     const fetchData = async () => {
       try {
         console.log('Fetching data from ' + process.env.REACT_APP_ENVIRONMENT);
+        console.log('Fetching data from ' + process.env.REACT_APP_API_URL);
+        console.log('Fetching data from ' + process.env.API_URL);
         // Define the URL based on an environment variable or fallback to a default value
-        const apiUrl = window.REACT_APP_API_URL || 'http://localhost:5240';
+        const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5240';
 
         // Make a GET request using the URL
         const response = await axios.get(`${apiUrl}/distilleries`);
@@ -27,6 +29,7 @@ const WhiskeyDistilleries = () => {
   return (
     <div className="container">
       <h1>Whiskey Distilleries</h1>
+
       {distilleries.map((distillery, index) => (
         <div className="distillery" key={index}>
           <h2>{distillery.name}</h2>
@@ -35,6 +38,7 @@ const WhiskeyDistilleries = () => {
           <p><strong>Website:</strong> <a href={distillery.website} target="_blank" rel="noopener noreferrer">{distillery.website}</a></p>
         </div>
       ))}
+    <p>API_URL: {window._env_.API_URL}</p>
     </div>
   );
 };
