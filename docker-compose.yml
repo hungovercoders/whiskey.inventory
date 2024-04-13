@@ -18,3 +18,5 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8080:80
+    environment:
+    - API_URL=http://localhost:5240

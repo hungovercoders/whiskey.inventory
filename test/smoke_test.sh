@@ -3,7 +3,7 @@ set -a
 set +a
 echo -e "${MESSAGE_COLOUR}Starting script: $0...${MESSAGE_NO_COLOUR}"
 
-URL=${1:-http://localhost:$PORT_API/health}
+URL=${1:-http://localhost:$PORT_API/distilleries}
 echo "Url to be smoke tested is $URL..."
 
 retries=5
@@ -11,6 +11,8 @@ wait=1
 timeout=$(($wait*5))
 
 echo "Test configured with time between retries of $wait second with a maximum of $retries retries resulting in a timeout of $timeout seconds."
+
+
 
 counter=1
 while [ $counter -le $retries ]; do
