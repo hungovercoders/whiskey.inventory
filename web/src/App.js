@@ -16,6 +16,7 @@ const WhiskeyDistilleries = () => {
         // Make a GET request using the URL
         const response = await axios.get(`${apiUrl}/distilleries`);
         setDistilleries(response.data);
+        console.log('Data fetched:', response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
