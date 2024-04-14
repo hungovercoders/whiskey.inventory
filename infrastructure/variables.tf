@@ -70,6 +70,7 @@ variable "port_web" {
 locals {
   region_shortcode                          = (var.region == "northeurope" ? "eun" : var.region == "westeurope" ? "euw" : "unk")
   environment_shortcode                     = (var.environment == "learning" ? "lrn" : var.environment == "development" ? "dev" : var.environment == "production" ? "prd" : "unk")
+  custom_domain                             = (local.environment_shortcode == "prd" ? "whiskey.hungovercoders.com" : "${local.environment_shortcode}.hungovercoders.com")
   resource_group_name                       = "${local.environment_shortcode}-${var.domain}-rg-${var.unique_namespace}"
   container_app_api_name                    = "${local.environment_shortcode}-${var.domain}-api-${local.region_shortcode}-${var.unique_namespace}"
   container_app_web_name                    = "${local.environment_shortcode}-${var.domain}-web-${local.region_shortcode}-${var.unique_namespace}"
