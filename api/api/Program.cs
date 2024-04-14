@@ -9,7 +9,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowSpecificOrigins",
         builder =>
         {
-             builder.WithOrigins("http://localhost:8080", "https://dev-whiskey-web-eun-hngc.salmonsea-c65b336a.northeurope.azurecontainerapps.io", "whiskey.hungovercoders.com")
+             builder.WithOrigins("http://localhost:8080", "https://whiskeydev.hungovercoders.com", "https://whiskey.hungovercoders.com")
                    .AllowAnyHeader()
                    .AllowAnyMethod();
         });
