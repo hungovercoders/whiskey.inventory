@@ -5,8 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-string[] origins = new string[] { "https://whiskeydev.hungovercoders.com", "https://whiskey.hungovercoders.com" };
-string localhost = "http://localhost:8080";
+string[] origins = new string[] { "http://localhost:8080", "https://whiskeydev.hungovercoders.com", "https://whiskey.hungovercoders.com" };
 
 builder.Services.AddCors(options =>
 {
@@ -19,16 +18,16 @@ builder.Services.AddCors(options =>
         });
 });
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("Development",
-        builder =>
-        {
-             builder.WithOrigins(localhost)
-                   .AllowAnyHeader()
-                   .AllowAnyMethod();
-        });
-});
+// builder.Services.AddCors(options =>
+// {
+//     options.AddPolicy("Development",
+//         builder =>
+//         {
+//              builder.WithOrigins(localhost)
+//                    .AllowAnyHeader()
+//                    .AllowAnyMethod();
+//         });
+// });
 
 var app = builder.Build();
 
@@ -37,11 +36,10 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    app.UseCors("Development");
+    //app.UseCors("Development");
 }
-else{
-    app.UseCors("AllowSpecificOrigins");
-}
+
+app.UseCors("AllowSpecificOrigins");
 
 app.UseHttpsRedirection();
 
