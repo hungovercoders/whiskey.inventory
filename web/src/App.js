@@ -25,7 +25,7 @@ const WhiskeyDistilleries = () => {
     <div className="container">
       <h1>Whiskey Distilleries</h1>
       {loading ? ( // Check loading state
-        <div className="loading">Pouring...</div>
+        <div className="loading">Please wait while we find you the finest whiskey distilleries...</div>
       ) : (
         distilleries.map((distillery, index) => {
           const url = new URL(distillery.website);
