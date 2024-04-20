@@ -36,15 +36,20 @@ const WhiskeyDistilleries = () => {
         </div>
       ) : (
         distilleries.map((distillery, index) => {
-          const url = new URL(distillery.website);
-          url.searchParams.append('utm_source', 'hungovercoders');
+          const website_url = new URL(distillery.website);
+          website_url.searchParams.append('utm_source', 'hungovercoders');
+          const wiki_url = new URL(distillery.website);
+          wiki_url.searchParams.append('utm_source', 'hungovercoders');
           return (
             <div className="distillery" key={index}>
               <h2>{distillery.name}</h2>
               <p><strong>Country:</strong> {distillery.country}</p>
               <p><strong>Region:</strong> {distillery.region}</p>
-              <p><strong>Website:</strong> <a href={url.toString()} target="_blank" rel="noopener noreferrer">{distillery.website}</a></p>
-              <p><strong>Wikipedia:</strong> <a href={url.toString()} target="_blank" rel="noopener noreferrer">{distillery.wikipedia}</a></p>
+              <p className="links">
+                  <strong><a href={website_url.toString()} target="_blank" rel="noopener noreferrer">Website</a></strong>
+                   | 
+                  <strong><a href={wiki_url.toString()} target="_blank" rel="noopener noreferrer">Wikipedia</a></strong>
+                </p>
             </div>
           );
         })
