@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-string[] origins = new string[] { "http://localhost:8080", "https://whiskeydev.hungovercoders.com", "https://whiskey.hungovercoders.com" };
+string[] origins = new string[] { Environment.GetEnvironmentVariable("CORS_ORIGINS") ?? string.Empty };
 
 builder.Services.AddCors(options =>
 {

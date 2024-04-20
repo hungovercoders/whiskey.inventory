@@ -5,6 +5,7 @@ import './App.css'; // Import CSS file for styling
 const WhiskeyDistilleries = () => {
   const [distilleries, setDistilleries] = useState([]);
   const [loading, setLoading] = useState(true); // Add loading state
+  const [error, setError] = useState(null); // Add error state
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,6 +16,8 @@ const WhiskeyDistilleries = () => {
         setLoading(false); // Set loading to false after data is fetched
       } catch (error) {
         console.error('Error fetching data:', error);
+        setError('It seems our servers have drunk a little too much and they can\'t seem to find your whiskey!');
+        setLoading(false); // Set loading to false in case of error
       }
     };
 
@@ -26,6 +29,11 @@ const WhiskeyDistilleries = () => {
       <h1>Whiskey Distilleries</h1>
       {loading ? ( // Check loading state
         <div className="loading">Please wait while we find you the finest whiskey distilleries...</div>
+      ) : error ? ( // Check error state
+        <div className="error">
+          <p className="error-message">{error}</p>
+          <p className="error-suggestion">Please refresh the page or try again later.</p>
+        </div>
       ) : (
         distilleries.map((distillery, index) => {
           const url = new URL(distillery.website);
