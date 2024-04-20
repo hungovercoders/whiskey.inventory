@@ -51,7 +51,21 @@ else
     COMMIT_ID=$(git log -1 --format="%h")
     IMAGE_TAG="$BRANCH-$COMMIT_ID"
 fi
-echo "$IMAGE_TAG."
+if [ $GITHUB_ACTION ]; then
+    echo "This is a github action deployment..."
+    echo "Image tag is correct."
+else
+    echo "This is not a github action deployment..."
+    echo "Updating image tag if not already development..."
+    echo "Image tag is $IMAGE_TAG."
+    if [ -n "$(echo "$IMAGE_TAG" | grep "development")" ];  then
+        echo "Image tag already development so do nothing."
+    else
+        IMAGE_TAG="$IMAGE_TAG-development"
+        echo "Updated image tag."
+    fi
+fi
+echo "Final image tag is $IMAGE_TAG."
 IMAGENAME=$ORGANISATION/$APP-$APP_TYPE:$IMAGE_TAG
 echo "Image name is $IMAGENAME."
 
