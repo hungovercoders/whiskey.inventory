@@ -3,32 +3,492 @@
         "id": "achill_island",
         "Name": "Achill Island Distillery",
         "Website": "https://www.irishamericanwhiskeys.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/List_of_distilleries_in_Ireland#Achill_Island_Distillery",
         "Region": "County Mayo",
         "Country": "Ireland",
-        "Location": { "Lat": 53.9631, "Lng": -10.0069 }
+        "Location": {
+            "Lat": 53.9631,
+            "Lng": -10.0069
+        }
     },
     {
         "id": "bushmills",
         "Name": "Bushmills Distillery",
         "Website": "https://www.bushmills.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Bushmills_distillery",
         "Region": "County Antrim",
         "Country": "Northern Ireland",
-        "Location": { "Lat": 55.2048, "Lng": -6.5236 }
+        "Location": {
+            "Lat": 55.2048,
+            "Lng": -6.5236
+        }
     },
     {
         "id": "jameson",
         "Name": "Jameson Distillery",
         "Website": "https://www.jamesonwhiskey.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Jameson_Irish_Whiskey",
         "Region": "County Dublin",
         "Country": "Ireland",
-        "Location": { "Lat": 53.3419, "Lng": -6.2865 }
+        "Location": {
+            "Lat": 53.3419,
+            "Lng": -6.2865
+        }
     },
     {
         "id": "penderyn",
         "Name": "Penderyn Distillery",
         "Website": "https://www.penderyn.wales/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Penderyn_distillery",
         "Region": "South Wales",
         "Country": "Wales",
-        "Location": { "Lat": 51.7635, "Lng": -3.5212 }
+        "Location": {
+            "Lat": 51.7635,
+            "Lng": -3.5212
+        }
+    },
+    {
+        "id": "glendronach",
+        "Name": "The Glendronach Distillery",
+        "Website": "https://www.glendronachdistillery.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Glendronach_distillery",
+        "Region": "Highland",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 57.5761,
+            "Lng": -2.6868
+        }
+    },
+    {
+        "id": "balvenie",
+        "Name": "The Balvenie Distillery",
+        "Website": "https://www.thebalvenie.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Balvenie_distillery",
+        "Region": "Speyside",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 57.4492,
+            "Lng": -3.1236
+        }
+    },
+    {
+        "id": "ardbeg",
+        "Name": "Ardbeg Distillery",
+        "Website": "https://www.ardbeg.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Ardbeg_distillery",
+        "Region": "Islay",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 55.6361,
+            "Lng": -6.0888
+        }
+    },
+    {
+        "id": "laphroaig",
+        "Name": "Laphroaig Distillery",
+        "Website": "https://www.laphroaig.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Laphroaig_distillery",
+        "Region": "Islay",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 55.6304,
+            "Lng": -6.1493
+        }
+    },
+    {
+        "id": "macallan",
+        "Name": "The Macallan Distillery",
+        "Website": "https://www.themacallan.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/The_Macallan_distillery",
+        "Region": "Speyside",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 57.4859,
+            "Lng": -3.2121
+        }
+    },
+    {
+        "id": "glenfiddich",
+        "Name": "Glenfiddich Distillery",
+        "Website": "https://www.glenfiddich.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Glenfiddich_distillery",
+        "Region": "Speyside",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 57.4534,
+            "Lng": -3.1286
+        }
+    },
+    {
+        "id": "lagavulin",
+        "Name": "Lagavulin Distillery",
+        "Website": "https://www.malts.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Lagavulin_distillery",
+        "Region": "Islay",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 55.6351,
+            "Lng": -6.1218
+        }
+    },
+    {
+        "id": "glenmorangie",
+        "Name": "The Glenmorangie Distillery",
+        "Website": "https://www.glenmorangie.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Glenmorangie_distillery",
+        "Region": "Highland",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 57.8636,
+            "Lng": -4.0674
+        }
+    },
+    {
+        "id": "yamazaki",
+        "Name": "Yamazaki Distillery",
+        "Website": "https://www.suntory.com/brands/yamazaki/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Yamazaki_distillery",
+        "Region": "Osaka Prefecture",
+        "Country": "Japan",
+        "Location": {
+            "Lat": 34.8653,
+            "Lng": 135.6744
+        }
+    },
+    {
+        "id": "hakushu",
+        "Name": "Hakushu Distillery",
+        "Website": "https://www.suntory.com/brands/hakushu/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Hakushu_distillery",
+        "Region": "Yamanashi Prefecture",
+        "Country": "Japan",
+        "Location": {
+            "Lat": 35.7881,
+            "Lng": 138.2962
+        }
+    },
+    {
+        "id": "nikka",
+        "Name": "Nikka Whisky Yoichi Distillery",
+        "Website": "https://www.nikka.com/eng/distilleries/yoichi/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Nikka_Whisky_Yoichi_Distillery",
+        "Region": "Hokkaido",
+        "Country": "Japan",
+        "Location": {
+            "Lat": 43.1815,
+            "Lng": 140.7737
+        }
+    },
+    {
+        "id": "chichibu",
+        "Name": "Chichibu Distillery",
+        "Website": "https://chichibu-distillery.com/en/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Chichibu_distillery",
+        "Region": "Saitama Prefecture",
+        "Country": "Japan",
+        "Location": {
+            "Lat": 35.9932,
+            "Lng": 139.0836
+        }
+    },
+    {
+        "id": "white_oak",
+        "Name": "White Oak Distillery",
+        "Website": "https://www.whiteoakwhisky.jp",
+        "Wikipedia": "https://en.wikipedia.org/wiki/White_Oak_distillery",
+        "Region": "Hyogo Prefecture",
+        "Country": "Japan",
+        "Location": {
+            "Lat": 34.8261,
+            "Lng": 134.6936
+        }
+    },
+    {
+        "id": "jack_daniels",
+        "Name": "Jack Daniel's Distillery",
+        "Website": "https://www.jackdaniels.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Jack_Daniel%27s",
+        "Region": "Tennessee",
+        "Country": "United States",
+        "Location": {
+            "Lat": 35.2849,
+            "Lng": -86.3597
+        }
+    },
+    {
+        "id": "makers_mark",
+        "Name": "Maker's Mark Distillery",
+        "Website": "https://www.makersmark.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Maker%27s_Mark",
+        "Region": "Kentucky",
+        "Country": "United States",
+        "Location": {
+            "Lat": 37.8351,
+            "Lng": -85.9292
+        }
+    },
+    {
+        "id": "buffalo_trace",
+        "Name": "Buffalo Trace Distillery",
+        "Website": "https://www.buffalotracedistillery.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Buffalo_Trace_Distillery",
+        "Region": "Kentucky",
+        "Country": "United States",
+        "Location": {
+            "Lat": 38.2061,
+            "Lng": -84.8733
+        }
+    },
+    {
+        "id": "wild_turkey",
+        "Name": "Wild Turkey Distillery",
+        "Website": "https://www.wildturkeybourbon.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Wild_Turkey_(bourbon)",
+        "Region": "Kentucky",
+        "Country": "United States",
+        "Location": {
+            "Lat": 38.0529,
+            "Lng": -84.8753
+        }
+    },
+    {
+        "id": "highland_park",
+        "Name": "Highland Park Distillery",
+        "Website": "https://www.highlandparkwhisky.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Highland_Park_distillery",
+        "Region": "Orkney",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 58.9847,
+            "Lng": -2.9597
+        }
+    },
+    {
+        "id": "aberfeldy",
+        "Name": "Aberfeldy Distillery",
+        "Website": "https://www.dewars.com/aberfeldy",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Aberfeldy_distillery",
+        "Region": "Highland",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 56.6206,
+            "Lng": -3.8664
+        }
+    },
+    {
+        "id": "talisker",
+        "Name": "Talisker Distillery",
+        "Website": "https://www.malts.com/en-gb/distilleries/talisker/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Talisker_distillery",
+        "Region": "Isle of Skye",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 57.3075,
+            "Lng": -6.3164
+        }
+    },
+    {
+        "id": "glen_scotia",
+        "Name": "Glen Scotia Distillery",
+        "Website": "https://www.glenscotia.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Glen_Scotia_distillery",
+        "Region": "Campbeltown",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 55.4249,
+            "Lng": -5.6081
+        }
+    },
+    {
+        "id": "clynelish",
+        "Name": "Clynelish Distillery",
+        "Website": "https://www.malts.com/en-gb/distilleries/clynelish/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Clynelish_distillery",
+        "Region": "Highland",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 58.0284,
+            "Lng": -3.8599
+        }
+    },
+    {
+        "id": "glenlivet",
+        "Name": "The Glenlivet Distillery",
+        "Website": "https://www.theglenlivet.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/The_Glenlivet_distillery",
+        "Region": "Speyside",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 57.2742,
+            "Lng": -3.2305
+        }
+    },
+    {
+        "id": "tomatin",
+        "Name": "Tomatin Distillery",
+        "Website": "https://www.tomatin.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Tomatin_distillery",
+        "Region": "Highland",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 57.3425,
+            "Lng": -4.0613
+        }
+    },
+    {
+        "id": "glen_garioch",
+        "Name": "Glen Garioch Distillery",
+        "Website": "https://www.glengarioch.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Glen_Garioch_distillery",
+        "Region": "Highland",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 57.3265,
+            "Lng": -2.2371
+        }
+    },
+    {
+        "id": "royal_brat",
+        "Name": "Royal Brackla Distillery",
+        "Website": "https://www.royalbrackla.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Royal_Brackla_distillery",
+        "Region": "Highland",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 57.5294,
+            "Lng": -4.1876
+        }
+    },
+    {
+        "id": "glenkinchie",
+        "Name": "Glenkinchie Distillery",
+        "Website": "https://www.malts.com/en-gb/distilleries/glenkinchie/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Glenkinchie_distillery",
+        "Region": "Lowland",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 55.8813,
+            "Lng": -2.8971
+        }
+    },
+    {
+        "id": "teeling",
+        "Name": "Teeling Distillery",
+        "Website": "https://teelingdistillery.com/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Teeling_Whiskey_Company",
+        "Region": "Dublin",
+        "Country": "Ireland",
+        "Location": {
+            "Lat": 53.3427,
+            "Lng": -6.2781
+        }
+    },
+    {
+        "id": "tullamore",
+        "Name": "Tullamore Distillery",
+        "Website": "https://www.tullamoredew.com",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Tullamore_Distillery",
+        "Region": "County Offaly",
+        "Country": "Ireland",
+        "Location": {
+            "Lat": 53.2748,
+            "Lng": -7.4915
+        }
+    },
+    {
+        "id": "slane",
+        "Name": "Slane Distillery",
+        "Website": "https://www.slaneirishwhiskey.com/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Slane_Distillery",
+        "Region": "County Meath",
+        "Country": "Ireland",
+        "Location": {
+            "Lat": 53.7099,
+            "Lng": -6.5583
+        }
+    },
+    {
+        "id": "midleton",
+        "Name": "Midleton Distillery",
+        "Website": "https://www.midletonveryrare.com/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Midleton_Distillery",
+        "Region": "County Cork",
+        "Country": "Ireland",
+        "Location": {
+            "Lat": 51.9119,
+            "Lng": -8.1700
+        }
+    },
+    {
+        "id": "dingle",
+        "Name": "Dingle Distillery",
+        "Website": "https://dingledistillery.ie/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Dingle_Distillery",
+        "Region": "County Kerry",
+        "Country": "Ireland",
+        "Location": {
+            "Lat": 52.1367,
+            "Lng": -10.2733
+        }
+    },
+    {
+        "id": "connemara",
+        "Name": "Connemara Distillery",
+        "Website": "https://www.connemarawhiskey.com/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Cooley_Distillery",
+        "Region": "County Galway",
+        "Country": "Ireland",
+        "Location": {
+            "Lat": 53.5432,
+            "Lng": -9.7736
+        }
+    },
+    {
+        "id": "kilbeggan",
+        "Name": "Kilbeggan Distillery",
+        "Website": "https://www.kilbegganwhiskey.com/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Kilbeggan_Distillery",
+        "Region": "County Westmeath",
+        "Country": "Ireland",
+        "Location": {
+            "Lat": 53.3686,
+            "Lng": -7.5043
+        }
+    },
+    {
+        "id": "ballykeefe",
+        "Name": "Ballykeefe Distillery",
+        "Website": "https://ballykeefedistillery.ie/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Ballykeefe_Distillery",
+        "Region": "County Kilkenny",
+        "Country": "Ireland",
+        "Location": {
+            "Lat": 52.6789,
+            "Lng": -7.2939
+        }
+    },
+    {
+        "id": "walsh",
+        "Name": "Walsh Whiskey Distillery",
+        "Website": "https://walshwhiskey.com/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Walsh_Whiskey_Distillery",
+        "Region": "County Carlow",
+        "Country": "Ireland",
+        "Location": {
+            "Lat": 52.8337,
+            "Lng": -6.9362
+        }
+    },
+    {
+        "id": "dingle",
+        "Name": "Dingle Distillery",
+        "Website": "https://dingledistillery.ie/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Dingle_Distillery",
+        "Region": "County Kerry",
+        "Country": "Ireland",
+        "Location": {
+            "Lat": 52.1367,
+            "Lng": -10.2733
+        }
     }
 ]

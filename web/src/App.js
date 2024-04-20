@@ -44,6 +44,7 @@ const WhiskeyDistilleries = () => {
               <p><strong>Country:</strong> {distillery.country}</p>
               <p><strong>Region:</strong> {distillery.region}</p>
               <p><strong>Website:</strong> <a href={url.toString()} target="_blank" rel="noopener noreferrer">{distillery.website}</a></p>
+              <p><strong>Wikipedia:</strong> <a href={url.toString()} target="_blank" rel="noopener noreferrer">{distillery.wikipedia}</a></p>
             </div>
           );
         })
