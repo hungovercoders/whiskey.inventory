@@ -1,3 +1,5 @@
+using System.Text.Json;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,16 +9,16 @@ builder.Services.AddSwaggerGen();
 
 string[] origins = new string[] { Environment.GetEnvironmentVariable("CORS_ORIGINS") ?? string.Empty };
 
-// builder.Services.AddCors(options =>
-// {
-//     options.AddPolicy("AllowSpecificOrigins",
-//         builder =>
-//         {
-//              builder.WithOrigins("*")
-//                    .AllowAnyHeader()
-//                    .AllowAnyMethod();
-//         });
-// });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigins",
+        builder =>
+        {
+             builder.WithOrigins("*")
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
+});
 
 // builder.Services.AddCors(options =>
 // {
@@ -39,7 +41,7 @@ if (app.Environment.IsDevelopment())
     //app.UseCors("Development");
 }
 
-//app.UseCors("AllowSpecificOrigins");
+app.UseCors("AllowSpecificOrigins");
 
 app.UseHttpsRedirection();
 
@@ -48,33 +50,10 @@ app.MapGet("/", () => $"Welcome to the whiskey API {environment} environment");
 
 app.MapGet("/distilleries", () =>
 {
-    var distilleries = new Distillery[]
-       {
-            new Distillery
-            {
-                Name = "Achill Island Distillery",
-                Website = "https://www.irishamericanwhiskeys.com",
-                Region = "County Mayo",
-                Country = "Ireland",
-                Location = new Location { Lat = 53.9631, Lng = -10.0069 }
-            },
-            new Distillery
-            {
-                Name = "Bushmills Distillery",
-                Website = "https://www.bushmills.com",
-                Region = "County Antrim",
-                Country = "Northern Ireland",
-                Location = new Location { Lat = 55.2048, Lng = -6.5236 }
-            },
-            new Distillery
-            {
-                Name = "Jameson Distillery",
-                Website = "https://www.jamesonwhiskey.com",
-                Region = "County Dublin",
-                Country = "Ireland",
-                Location = new Location { Lat = 53.3419, Lng = -6.2865 }
-            }
-       };
+       string json = File.ReadAllText("data/distilleries.json");
+
+    // Deserialize the JSON into an array of Distillery objects
+    Distillery[] distilleries = JsonSerializer.Deserialize<Distillery[]>(json);
     return distilleries;
 })
 .WithName("GetDistilleries")
@@ -86,6 +65,7 @@ app.Run();
 
 public class Distillery
 {
+    public string id { get; set; }
     public string Name { get; set; }
     public string Website { get; set; }
     public string Region { get; set; }

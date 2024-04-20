@@ -1,0 +1,34 @@
+[
+    {
+        "id": "achill_island",
+        "Name": "Achill Island Distillery",
+        "Website": "https://www.irishamericanwhiskeys.com",
+        "Region": "County Mayo",
+        "Country": "Ireland",
+        "Location": { "Lat": 53.9631, "Lng": -10.0069 }
+    },
+    {
+        "id": "bushmills",
+        "Name": "Bushmills Distillery",
+        "Website": "https://www.bushmills.com",
+        "Region": "County Antrim",
+        "Country": "Northern Ireland",
+        "Location": { "Lat": 55.2048, "Lng": -6.5236 }
+    },
+    {
+        "id": "jameson",
+        "Name": "Jameson Distillery",
+        "Website": "https://www.jamesonwhiskey.com",
+        "Region": "County Dublin",
+        "Country": "Ireland",
+        "Location": { "Lat": 53.3419, "Lng": -6.2865 }
+    },
+    {
+        "id": "penderyn",
+        "Name": "Penderyn Distillery",
+        "Website": "https://www.penderyn.wales/",
+        "Region": "South Wales",
+        "Country": "Wales",
+        "Location": { "Lat": 51.7635, "Lng": -3.5212 }
+    }
+]
