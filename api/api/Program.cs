@@ -68,6 +68,7 @@ public class Distillery
     public string id { get; set; }
     public string Name { get; set; }
     public string Website { get; set; }
+    public string Wikipedia { get; set; }
     public string Region { get; set; }
     public string Country { get; set; }
     public Location Location { get; set; }
