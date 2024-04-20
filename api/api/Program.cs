@@ -7,16 +7,16 @@ builder.Services.AddSwaggerGen();
 
 string[] origins = new string[] { Environment.GetEnvironmentVariable("CORS_ORIGINS") ?? string.Empty };
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowSpecificOrigins",
-        builder =>
-        {
-             builder.WithOrigins("*")
-                   .AllowAnyHeader()
-                   .AllowAnyMethod();
-        });
-});
+// builder.Services.AddCors(options =>
+// {
+//     options.AddPolicy("AllowSpecificOrigins",
+//         builder =>
+//         {
+//              builder.WithOrigins("*")
+//                    .AllowAnyHeader()
+//                    .AllowAnyMethod();
+//         });
+// });
 
 // builder.Services.AddCors(options =>
 // {
@@ -39,7 +39,7 @@ if (app.Environment.IsDevelopment())
     //app.UseCors("Development");
 }
 
-app.UseCors("AllowSpecificOrigins");
+//app.UseCors("AllowSpecificOrigins");
 
 app.UseHttpsRedirection();
 
