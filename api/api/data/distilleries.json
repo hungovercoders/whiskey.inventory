@@ -146,7 +146,7 @@
     {
         "id": "yamazaki",
         "Name": "Yamazaki Distillery",
-        "Website": "https://www.suntory.com/brands/yamazaki/",
+        "Website": "https://www.suntory.com/factory/yamazaki/",
         "Wikipedia": "https://en.wikipedia.org/wiki/Yamazaki_distillery",
         "Region": "Osaka Prefecture",
         "Country": "Japan",
@@ -158,7 +158,7 @@
     {
         "id": "hakushu",
         "Name": "Hakushu Distillery",
-        "Website": "https://www.suntory.com/brands/hakushu/",
+        "Website": "https://www.suntory.com/factory/hakushu/",
         "Wikipedia": "https://en.wikipedia.org/wiki/Hakushu_distillery",
         "Region": "Yamanashi Prefecture",
         "Country": "Japan",
