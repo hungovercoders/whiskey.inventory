@@ -59,14 +59,17 @@ const WhiskeyDistilleries = () => {
             wiki_url.searchParams.append('utm_source', 'hungovercoders');
             return (
               <div className="distillery" key={index}>
-                <h2>{distillery.name}</h2>
-                <p><strong>Country:</strong> {distillery.country}</p>
-                <p><strong>Region:</strong> {distillery.region}</p>
-                <p className="links">
-                  <strong><a href={website_url.toString()} target="_blank" rel="noopener noreferrer">Website</a></strong>
-                   | 
-                  <strong><a href={wiki_url.toString()} target="_blank" rel="noopener noreferrer">Wikipedia</a></strong>
-                </p>
+                <div className="text-content">
+                  <h2>{distillery.name}</h2>
+                  <p><strong>Country:</strong> {distillery.country}</p>
+                  <p><strong>Region:</strong> {distillery.region}</p>
+                  <p className="links">
+                    <strong><a href={website_url.toString()} target="_blank" rel="noopener noreferrer">Website</a></strong>
+                    |
+                    <strong><a href={wiki_url.toString()} target="_blank" rel="noopener noreferrer">Wikipedia</a></strong>
+                  </p>
+                </div>
+                <img src={`/flags/${distillery.country.toLowerCase()}.png`} alt={`${distillery.country} Flag`} className="distillery-image" />
               </div>
             );
           })}

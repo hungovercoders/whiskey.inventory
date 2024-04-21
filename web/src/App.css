@@ -7,7 +7,17 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.text-content {
+  flex: 1;
+}
+
+.distillery-image {
+  margin-left: 20px; /* Adjust the margin as needed */
+}
+
 .distillery {
+  display: flex;
+  align-items: center;
   margin-bottom: 20px;
   padding: 20px;
   border: 1px solid #cccccc;
