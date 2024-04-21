@@ -37,11 +37,23 @@ app.UseHttpsRedirection();
 string environment = System.Environment.GetEnvironmentVariable("APP_ENVIRONMENT");
 app.MapGet($"{basePath}/", () => $"Welcome to the whiskey API {environment} environment");
 
-app.MapGet($"{basePath}/distilleries", (HttpContext context, int page = 1, int pageSize = 10) =>
+app.MapGet($"{basePath}/distilleries", (HttpContext context, int page = 1, int pageSize = 10, string? country = null, string? region = null) =>
 {
     string json = File.ReadAllText("data/distilleries.json");
 
     Distillery[] allDistilleries = JsonSerializer.Deserialize<Distillery[]>(json);
+
+    // Filter by country if provided
+    if (!string.IsNullOrEmpty(country))
+    {
+        allDistilleries = allDistilleries.Where(d => d.Country.Equals(country, StringComparison.OrdinalIgnoreCase)).ToArray();
+    }
+
+    // Filter by region if provided
+    if (!string.IsNullOrEmpty(region))
+    {
+        allDistilleries = allDistilleries.Where(d => d.Region.Equals(region, StringComparison.OrdinalIgnoreCase)).ToArray();
+    }
 
     int startIndex = (page - 1) * pageSize;
 
@@ -55,6 +67,7 @@ app.MapGet($"{basePath}/distilleries", (HttpContext context, int page = 1, int p
 .WithName("GetDistilleries")
 .WithOpenApi()
 .Produces<IEnumerable<Distillery>>(200);
+
 
 app.MapGet($"{basePath}/health", () => "Healthy");
 

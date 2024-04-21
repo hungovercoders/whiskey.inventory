@@ -9,12 +9,13 @@ const WhiskeyDistilleries = () => {
   const [page, setPage] = useState(1); // Current page number
   const [pageSize, setPageSize] = useState(10); // Number of items per page
   const [hasMore, setHasMore] = useState(true); // Whether there are more pages
+  const [countryFilter, setCountryFilter] = useState(''); // State for country filter
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const apiUrl = window._env_.API_URL || 'http://localhost:5240/api';
-        const response = await axios.get(`${apiUrl}/distilleries?page=${page}&pageSize=${pageSize}`);
+        const response = await axios.get(`${apiUrl}/distilleries?page=${page}&pageSize=${pageSize}&country=${countryFilter}`);
         setDistilleries(response.data);
         setHasMore(response.data.length === pageSize); // Check if there are more pages
         setLoading(false); // Set loading to false after data is fetched
@@ -26,7 +27,7 @@ const WhiskeyDistilleries = () => {
     };
 
     fetchData();
-  }, [page, pageSize]); // Add dependencies for page and pageSize
+  }, [page, pageSize, countryFilter]); // Add countryFilter as a dependency
 
   const handlePrevPage = () => {
     if (page > 1) {
@@ -40,9 +41,24 @@ const WhiskeyDistilleries = () => {
     }
   };
 
+  const handleCountryFilterChange = (event) => {
+    setCountryFilter(event.target.value); // Update country filter when input changes
+  };
+
   return (
     <div className="container">
       <h1>Whiskey Distilleries</h1>
+      <div className="filter">
+        <label htmlFor="countryFilter">Filter by Country:</label>
+        <select id="countryFilter" value={countryFilter} onChange={handleCountryFilterChange}>
+          <option value="">All</option>
+          <option value="Wales">Wales</option>
+          <option value="Scotland">Scotland</option>
+          <option value="United States">United States</option>
+          <option value="Japan">Japan</option>
+          <option value="Ireland">Ireland</option>
+        </select>
+      </div>
       {loading ? ( // Check loading state
         <div className="loading">Please wait while we find you the finest whiskey distilleries...</div>
       ) : error ? ( // Check error state
@@ -53,9 +69,7 @@ const WhiskeyDistilleries = () => {
       ) : (
         <>
           <div className="pagination">
-            <button onClick={handlePrevPage} disabled={page === 1}>Previous</button>
             <span>Page {page}</span>
-            <button onClick={handleNextPage} disabled={!hasMore}>Next</button>
           </div>
           {distilleries.map((distillery, index) => {
             const website_url = new URL(distillery.website);
@@ -80,7 +94,6 @@ const WhiskeyDistilleries = () => {
           })}
           <div className="pagination">
             <button onClick={handlePrevPage} disabled={page === 1}>Previous</button>
-            <span>Page {page}</span>
             <button onClick={handleNextPage} disabled={!hasMore}>Next</button>
           </div>
         </>
