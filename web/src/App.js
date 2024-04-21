@@ -52,6 +52,11 @@ const WhiskeyDistilleries = () => {
         </div>
       ) : (
         <>
+          <div className="pagination">
+            <button onClick={handlePrevPage} disabled={page === 1}>Previous</button>
+            <span>Page {page}</span>
+            <button onClick={handleNextPage} disabled={!hasMore}>Next</button>
+          </div>
           {distilleries.map((distillery, index) => {
             const website_url = new URL(distillery.website);
             website_url.searchParams.append('utm_source', 'hungovercoders');
