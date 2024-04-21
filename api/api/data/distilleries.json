@@ -503,78 +503,76 @@
             "Lng": -7.7320
         }
     },
-    [
-        {
-            "id": "boann",
-            "Name": "Boann Distillery",
-            "Website": "https://boanndistillery.ie/",
-            "Wikipedia": "https://en.wikipedia.org/wiki/Boann_Distillery",
-            "Region": "County Meath",
-            "Country": "Ireland",
-            "Location": {
-                "Lat": 53.7288,
-                "Lng": -6.6802
-            }
-        },
-        {
-            "id": "clonakilty",
-            "Name": "Clonakilty Distillery",
-            "Website": "https://clonakiltydistillery.ie/",
-            "Wikipedia": "https://en.wikipedia.org/wiki/Clonakilty_Distillery",
-            "Region": "County Cork",
-            "Country": "Ireland",
-            "Location": {
-                "Lat": 51.6123,
-                "Lng": -8.8811
-            }
-        },
-        {
-            "id": "connacht",
-            "Name": "Connacht Whiskey Company",
-            "Website": "https://connachtwhiskey.com/",
-            "Wikipedia": "https://en.wikipedia.org/wiki/Connacht_Whiskey_Company",
-            "Region": "County Mayo",
-            "Country": "Ireland",
-            "Location": {
-                "Lat": 53.9570,
-                "Lng": -9.1562
-            }
-        },
-        {
-            "id": "cooley",
-            "Name": "Cooley Distillery",
-            "Website": "https://www.cooleydistillery.com/",
-            "Wikipedia": "https://en.wikipedia.org/wiki/Cooley_Distillery",
-            "Region": "County Louth",
-            "Country": "Ireland",
-            "Location": {
-                "Lat": 53.9703,
-                "Lng": -6.3841
-            }
-        },
-        {
-            "id": "dublin_liberties",
-            "Name": "Dublin Liberties Distillery",
-            "Website": "https://thedld.com/",
-            "Wikipedia": "https://en.wikipedia.org/wiki/Dublin_Liberties_Distillery",
-            "Region": "Dublin",
-            "Country": "Ireland",
-            "Location": {
-                "Lat": 53.3472,
-                "Lng": -6.2862
-            }
-        },
-        {
-            "id": "great_northern",
-            "Name": "Great Northern Distillery",
-            "Website": "https://www.greatnortherndistilling.com/",
-            "Wikipedia": "https://en.wikipedia.org/wiki/Great_Northern_Brewery,_Dundalk#Great_Northern_Distillery",
-            "Region": "County Louth",
-            "Country": "Ireland",
-            "Location": {
-                "Lat": 53.9727,
-                "Lng": -6.4045
-            }
+    {
+        "id": "boann",
+        "Name": "Boann Distillery",
+        "Website": "https://boanndistillery.ie/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Boann_Distillery",
+        "Region": "County Meath",
+        "Country": "Ireland",
+        "Location": {
+            "Lat": 53.7288,
+            "Lng": -6.6802
         }
-    ]    
+    },
+    {
+        "id": "clonakilty",
+        "Name": "Clonakilty Distillery",
+        "Website": "https://clonakiltydistillery.ie/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Clonakilty_Distillery",
+        "Region": "County Cork",
+        "Country": "Ireland",
+        "Location": {
+            "Lat": 51.6123,
+            "Lng": -8.8811
+        }
+    },
+    {
+        "id": "connacht",
+        "Name": "Connacht Whiskey Company",
+        "Website": "https://connachtwhiskey.com/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Connacht_Whiskey_Company",
+        "Region": "County Mayo",
+        "Country": "Ireland",
+        "Location": {
+            "Lat": 53.9570,
+            "Lng": -9.1562
+        }
+    },
+    {
+        "id": "cooley",
+        "Name": "Cooley Distillery",
+        "Website": "https://www.cooleydistillery.com/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Cooley_Distillery",
+        "Region": "County Louth",
+        "Country": "Ireland",
+        "Location": {
+            "Lat": 53.9703,
+            "Lng": -6.3841
+        }
+    },
+    {
+        "id": "dublin_liberties",
+        "Name": "Dublin Liberties Distillery",
+        "Website": "https://thedld.com/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Dublin_Liberties_Distillery",
+        "Region": "Dublin",
+        "Country": "Ireland",
+        "Location": {
+            "Lat": 53.3472,
+            "Lng": -6.2862
+        }
+    },
+    {
+        "id": "great_northern",
+        "Name": "Great Northern Distillery",
+        "Website": "https://www.greatnortherndistilling.com/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Great_Northern_Brewery,_Dundalk#Great_Northern_Distillery",
+        "Region": "County Louth",
+        "Country": "Ireland",
+        "Location": {
+            "Lat": 53.9727,
+            "Lng": -6.4045
+        }
+    }
 ]

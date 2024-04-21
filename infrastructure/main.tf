@@ -25,7 +25,10 @@ resource "azurerm_container_app" "api" {
         name  = "APP_ENVIRONMENT"
         value = var.environment
       }
-
+      env {
+        name  = "CORS_ORIGINS"
+        value = "https://${local.custom_domain}"
+      }
     }
   }
   ingress {
@@ -52,7 +55,7 @@ resource "azurerm_container_app" "web" {
       memory = "0.5Gi"
       env {
         name  = "API_URL"
-        value = "https://${azurerm_container_app.api.ingress[0].fqdn}"
+        value = "https://${azurerm_container_app.api.ingress[0].fqdn}/api"
       }
     }
   }

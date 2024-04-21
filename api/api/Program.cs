@@ -7,38 +7,27 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-string[] origins = new string[] { Environment.GetEnvironmentVariable("CORS_ORIGINS") ?? string.Empty };
+// Set the default root path
+string basePath = "/api";
+string[] origins = [Environment.GetEnvironmentVariable("CORS_ORIGINS") ?? string.Empty];
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigins",
         builder =>
         {
-             builder.WithOrigins("*")
+             builder.WithOrigins(origins)
                    .AllowAnyHeader()
                    .AllowAnyMethod();
         });
 });
 
-// builder.Services.AddCors(options =>
-// {
-//     options.AddPolicy("Development",
-//         builder =>
-//         {
-//              builder.WithOrigins(localhost)
-//                    .AllowAnyHeader()
-//                    .AllowAnyMethod();
-//         });
-// });
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    //app.UseCors("Development");
 }
 
 app.UseCors("AllowSpecificOrigins");
@@ -46,20 +35,28 @@ app.UseCors("AllowSpecificOrigins");
 app.UseHttpsRedirection();
 
 string environment = System.Environment.GetEnvironmentVariable("APP_ENVIRONMENT");
-app.MapGet("/", () => $"Welcome to the whiskey API {environment} environment");
+app.MapGet($"{basePath}/", () => $"Welcome to the whiskey API {environment} environment");
 
-app.MapGet("/distilleries", () =>
+app.MapGet($"{basePath}/distilleries", (HttpContext context, int page = 1, int pageSize = 10) =>
 {
-       string json = File.ReadAllText("data/distilleries.json");
+    string json = File.ReadAllText("data/distilleries.json");
 
-    // Deserialize the JSON into an array of Distillery objects
-    Distillery[] distilleries = JsonSerializer.Deserialize<Distillery[]>(json);
-    return distilleries;
+    Distillery[] allDistilleries = JsonSerializer.Deserialize<Distillery[]>(json);
+
+    int startIndex = (page - 1) * pageSize;
+
+    Distillery[] paginatedDistilleries = allDistilleries
+        .Skip(startIndex)
+        .Take(pageSize)
+        .ToArray();
+
+    return Results.Ok(paginatedDistilleries);
 })
 .WithName("GetDistilleries")
-.WithOpenApi();
+.WithOpenApi()
+.Produces<IEnumerable<Distillery>>(200);
 
-app.MapGet("/health", () => "Healthy");
+app.MapGet($"{basePath}/health", () => "Healthy");
 
 app.Run();
 
