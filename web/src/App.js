@@ -38,7 +38,7 @@ const WhiskeyDistilleries = () => {
         distilleries.map((distillery, index) => {
           const website_url = new URL(distillery.website);
           website_url.searchParams.append('utm_source', 'hungovercoders');
-          const wiki_url = new URL(distillery.website);
+          const wiki_url = new URL(distillery.wikipedia);
           wiki_url.searchParams.append('utm_source', 'hungovercoders');
           return (
             <div className="distillery" key={index}>
