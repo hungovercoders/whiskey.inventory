@@ -42,3 +42,4 @@ vscode:
     - ms-azuretools.vscode-docker
     - ms-dotnettools.csdevkit
     - ritwickdey.liveserver
+    - humao.rest-client

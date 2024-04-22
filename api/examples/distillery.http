@@ -1,0 +1,18 @@
+GET http://localhost:5240/api/distilleries
+
+###
+
+GET http://localhost:5240/api/distilleries?country=scotland
+
+###
+
+GET http://localhost:5240/api/distilleries?region=speyside
+
+###
+
+GET http://localhost:5240/api/distillery/name
+
+
+###5
+
+GET http://localhost:5240/api/distillery/name?region=speyside

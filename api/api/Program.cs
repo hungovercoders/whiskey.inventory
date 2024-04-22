@@ -1,4 +1,6 @@
 using System.Text.Json;
+using System.Reflection;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -67,6 +69,41 @@ app.MapGet($"{basePath}/distilleries", (HttpContext context, int page = 1, int p
 .WithName("GetDistilleries")
 .WithOpenApi()
 .Produces<IEnumerable<Distillery>>(200);
+
+app.MapGet($"{basePath}/distillery/{{attribute}}", (HttpContext context,  string attribute, string? country = null, string? region = null) =>
+{
+    string json = File.ReadAllText("data/distilleries.json");
+
+    Distillery[] allDistilleries = JsonSerializer.Deserialize<Distillery[]>(json);
+
+    // Filter by country if provided
+    if (!string.IsNullOrEmpty(country))
+    {
+        allDistilleries = allDistilleries.Where(d => d.Country.Equals(country, StringComparison.OrdinalIgnoreCase)).ToArray();
+    }
+
+    // Filter by region if provided
+    if (!string.IsNullOrEmpty(region))
+    {
+        allDistilleries = allDistilleries.Where(d => d.Region.Equals(region, StringComparison.OrdinalIgnoreCase)).ToArray();
+    }
+
+    var property = typeof(Distillery).GetProperty(attribute, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
+    if (property == null)
+    {
+        return Results.NotFound();
+    }
+
+    var distilleryAttributes = allDistilleries
+        .Select(d => property.GetValue(d)?.ToString())
+        .Distinct()
+        .ToList();
+
+    return Results.Ok(distilleryAttributes);
+})
+.WithName("GetDistilleryAttribute")
+.WithOpenApi()
+.Produces<IEnumerable<String[]>>(200);
 
 
 app.MapGet($"{basePath}/health", () => "Healthy");

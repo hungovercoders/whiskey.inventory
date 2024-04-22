@@ -574,5 +574,89 @@
             "Lat": 55.2048,
             "Lng": -6.5236
         }
+    },
+    {
+        "id": "glenfarclas",
+        "Name": "Glenfarclas Distillery",
+        "Website": "https://www.glenfarclas.com/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Glenfarclas_distillery",
+        "Region": "Speyside",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 57.4193,
+            "Lng": -3.2733
+        }
+    },
+    {
+        "id": "kilchoman",
+        "Name": "Kilchoman Distillery",
+        "Website": "https://kilchomandistillery.com/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Kilchoman_distillery",
+        "Region": "Islay",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 55.8118,
+            "Lng": -6.3227
+        }
+    },
+    {
+        "id": "benriach",
+        "Name": "BenRiach Distillery",
+        "Website": "https://www.benriachdistillery.com/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/BenRiach_distillery",
+        "Region": "Speyside",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 57.4395,
+            "Lng": -3.2125
+        }
+    },
+    {
+        "id": "cardhu",
+        "Name": "Cardhu Distillery",
+        "Website": "https://www.malts.com/en-gb/distilleries/cardhu/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Cardhu_distillery",
+        "Region": "Speyside",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 57.4582,
+            "Lng": -3.3264
+        }
+    },
+    {
+        "id": "aberlour",
+        "Name": "Aberlour Distillery",
+        "Website": "https://www.aberlour.com/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Aberlour_distillery",
+        "Region": "Speyside",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 57.4708,
+            "Lng": -3.2275
+        }
+    },
+    {
+        "id": "glenallachie",
+        "Name": "The GlenAllachie Distillery",
+        "Website": "https://www.theglenallachie.com/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Glenallachie_distillery",
+        "Region": "Speyside",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 57.4842,
+            "Lng": -3.2942
+        }
+    },
+    {
+        "id": "longmorn",
+        "Name": "Longmorn Distillery",
+        "Website": "https://www.longmorn.com/",
+        "Wikipedia": "https://en.wikipedia.org/wiki/Longmorn_distillery",
+        "Region": "Speyside",
+        "Country": "Scotland",
+        "Location": {
+            "Lat": 57.5116,
+            "Lng": -3.2452
+        }
     }
 ]
