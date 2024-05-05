@@ -15,7 +15,6 @@ const WhiskeyDistilleries = () => {
     const fetchData = async () => {
       try {
         const apiUrl = window._env_.API_URL || 'http://localhost:5240/api';
-        console.log(apiUrl); // temporary to show environment specific solution!
         const response = await axios.get(`${apiUrl}/distilleries?page=${page}&pageSize=${pageSize}&country=${countryFilter}`);
         setDistilleries(response.data);
         setHasMore(response.data.length === pageSize); // Check if there are more pages

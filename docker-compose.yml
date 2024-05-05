@@ -11,6 +11,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - 5240:5240
+    environment:
+    - CORS_ORIGINS=http://localhost:8080
   web:
     # image: $APP
     build:
@@ -19,4 +21,4 @@ services:
     ports:
       - 8080:80
     environment:
-    - API_URL=http://localhost:5240
+    - API_URL=http://localhost:5240/api
