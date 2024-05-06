@@ -80,6 +80,7 @@ locals {
   container_web_name                        = "${var.app}-web"
   container_api_image_name                  = "docker.io/${var.organisation}/${var.app}-api:${var.image_tag}"
   container_web_image_name                  = "docker.io/${var.organisation}/${var.app}-web:${var.image_tag}"
+  cosmos_name                               = "${local.environment_shortcode}-${var.domain}-sql-${local.region_shortcode}-${var.unique_namespace}"
 
   tags = {
     environment  = var.environment

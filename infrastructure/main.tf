@@ -74,6 +74,36 @@ resource "azurerm_container_app" "web" {
   }
 }
 
+resource "azurerm_cosmosdb_account" "db" {
+  name                              = local.cosmos_name
+  location                          = var.region
+  resource_group_name               = azurerm_resource_group.rg.name
+  offer_type                        = "Standard"
+  kind                              = "GlobalDocumentDB"
+  tags                              = local.tags
+  is_virtual_network_filter_enabled = false
+  geo_location {
+    location          = var.region
+    failover_priority = 0
+    zone_redundant    = true
+  }
+
+  consistency_policy {
+    consistency_level       = "Eventual"
+    max_interval_in_seconds = 5
+    max_staleness_prefix    = 100
+  }
+
+  capabilities {
+    name = "EnableServerless"
+  }
+
+  backup {
+    type = "Continuous"
+    tier = "Continuous7Days"
+  }
+}
+
 output "azurerm_container_api_url" {
   value = azurerm_container_app.api.latest_revision_fqdn
 }
