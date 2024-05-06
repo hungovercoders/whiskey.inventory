@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "event_handler": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7180",
+      "launchBrowser": false
+    }
+  }
+}
